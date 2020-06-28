@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 p-3">
+        <h5>Modifier</h5>
+      </div>
+      <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+          <div class="row">
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+              <div class="form-group">
+                <label for="exampleInputtitre">Titre de vacances</label>
+                <input type="text" class="form-control rounded-0" id="exampleInputtitre" name="exampleInputtitre"
+                  [(ngModel)]="vacance.titerVac" #titreVac="ngModel" 
+                  [ngClass]="{ 'is-invalid': f.submitted && titreVac.invalid }" required placeholder="Titre du livre">
+
+
+                <div *ngIf="f.submitted && titreVac.invalid" class="invalid-feedback">
+                  <div *ngIf="titreVac.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="form-group">
+                <label for="exampleInputdébut">date de début</label>
+                <input type="date" class="form-control rounded-0" id="exampleInputdébut" name="exampleInputdébut"
+                  [(ngModel)]="vacance.debutVac" #debutVac="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && debutVac.invalid }" required 
+                  >
+
+                <div *ngIf="f.submitted && debutVac.invalid" class="invalid-feedback">
+                  <div *ngIf="debutVac.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="exampleInputDetails">Details</label>
+                <textarea class="form-control" rows="5" class="form-control rounded-0" id="exampleInputDetails" name="exampleInputDetails"
+                [ngClass]="{ 'is-invalid': f.submitted && detailsVac.invalid }" required
+                [(ngModel)]="vacance.detailsVac" #detailsVac="ngModel" 
+              ></textarea>
+
+                <div *ngIf="f.submitted && detailsVac.invalid" class="invalid-feedback">
+                  <div *ngIf="detailsVac.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+
+              {{vacance.detailsVac|json}}
+
+
+            </div>
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+
+              <div class="form-group">
+                <label for="exampleInputType">Type de vacances</label>
+                <input type="text" class="form-control rounded-0" id="exampleInputType" name="exampleInputType"
+                  [(ngModel)]="vacance.typeVac" #typeVac="ngModel" 
+                  [ngClass]="{ 'is-invalid': f.submitted && typeVac.invalid }" required placeholder="Titre du livre">
+
+
+                <div *ngIf="f.submitted && typeVac.invalid" class="invalid-feedback">
+                  <div *ngIf="typeVac.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputfin">date de fin </label>
+                <input type="date" class="form-control rounded-0" id="exampleInputfin" name="exampleInputfin"
+                  [(ngModel)]="vacance.finVac" #finVac="ngModel" 
+                  [ngClass]="{ 'is-invalid': f.submitted && finVac.invalid }" required >
+
+                <div *ngIf="f.submitted && finVac.invalid" class="invalid-feedback">
+                  <div *ngIf="finVac.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div><br>
+          <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Modifier</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

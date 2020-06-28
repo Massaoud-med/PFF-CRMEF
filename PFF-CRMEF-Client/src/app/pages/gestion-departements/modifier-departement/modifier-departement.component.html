@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 p-3">
+        <h5 style="font-family: Georgia, serif; font-size: 27px;">Modifier Département</h5>
+      </div>
+      <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+          <div class="row">
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+              <div class="form-group">
+                <label for="exampleInputDep">Departement</label>
+                <input type="text" class="form-control rounded-0" id="exampleInputDep" name="exampleInputDep"
+                  [(ngModel)]="departement.nomDep" #nomDep="ngModel" aria-describedby="depHelp" [ngClass]="{ 'is-invalid': f.submitted && nomDep.invalid }" required
+                  placeholder="Departement">
+
+
+                <div *ngIf="f.submitted && nomDep.invalid" class="invalid-feedback">
+                  <div *ngIf="nomDep.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="exampleInputResp">Responsable</label>
+                <input type="text" class="form-control rounded-0" id="exampleInputResp" name="exampleInputResp"
+                  [(ngModel)]="departement.responsableDep" #responsableDep="ngModel" aria-describedby="RespHelp" [ngClass]="{ 'is-invalid': f.submitted && responsableDep.invalid }" required
+                  placeholder="Respnsable">
+
+                <div *ngIf="f.submitted && responsableDep.invalid" class="invalid-feedback">
+                  <div *ngIf="responsableDep.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputTelephone">Telephone</label>
+                <input type="text" class="form-control rounded-0" id="exampleInputTelephone"
+                  name="exampleInputTelephone" [(ngModel)]="departement.teleDep" #teleDep="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && teleDep.invalid }" required
+                  aria-describedby="teleHelp" placeholder="Enter telephone">
+
+                <div *ngIf="f.submitted && teleDep.invalid" class="invalid-feedback">
+                  <div *ngIf="teleDep.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">E-mail </label>
+                <input type="email" class="form-control rounded-0" id="exampleInputEmail1" name="exampleInputEmail1"
+                  [(ngModel)]="departement.emailDep" #emailDep="ngModel" aria-describedby="emailHelp"  [ngClass]="{ 'is-invalid': f.submitted && emailDep.invalid }" required
+                  placeholder=" Email">
+
+                <div *ngIf="f.submitted && emailDep.invalid" class="invalid-feedback">
+                  <div *ngIf="emailDep.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputCapacite">Capaciter</label>
+                <input type="email" class="form-control rounded-0" id="exampleInputCapacite" name="exampleInputCapacite"  [ngClass]="{ 'is-invalid': f.submitted && capaciteDep.invalid }" required
+                  [(ngModel)]="departement.capaciteDep" #capaciteDep="ngModel" aria-describedby="capaciteHelp"
+                  placeholder="Capaciter">
+
+                <div *ngIf="f.submitted && capaciteDep.invalid" class="invalid-feedback">
+                  <div *ngIf="capaciteDep.errors.required">Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+              <br>
+
+            </div>
+
+          </div><br>
+
+
+          <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Modifier</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

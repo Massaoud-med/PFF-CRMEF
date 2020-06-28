@@ -1,0 +1,84 @@
+
+<div class="row" >
+  <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 p-3">
+        <h5 style="font-family: Georgia, serif; font-size: 27px;">Ajouter des Livres</h5>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #timeTableForm="ngForm">
+
+          <div class="row">
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Titre</label>
+                <input type="text" class="form-control rounded-0" id="exampleInputTitre" name="exampleInputTitre"
+                  [(ngModel)]="bibliotheque.titre" aria-describedby="titreHelp" placeholder="Enter Titre">
+                <small id="titreHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="exampleInputNom">matière</label>
+                <input type="text" class="form-control rounded-0" id="exampleInputmatière" name="exampleInputmatière"
+                  [(ngModel)]="bibliotheque.matiere"  aria-describedby="matièreHelp" placeholder="Enter matière">
+                <small id="matièrepHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputTelephone">Dpartement</label>
+                <input type="text" class="form-control rounded-0" id="exampleInputdep"
+                  name="exampleInputdep" [(ngModel)]="bibliotheque.departement" aria-describedby="depHelp"
+                  placeholder="Enter telephone">
+                <small id="depHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+
+      
+            </div>
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+              
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select class="form-control" name="type" id="type" [(ngModel)]="bibliotheque.type">
+                  <option [ngValue]="undefined">Choisi type</option>
+                  <option *ngFor="let t of type" [value]="t.value">
+                    {{t.name}}
+                  </option>
+                </select>
+                <small id="typeHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="etat">Etat</label>
+                <select class="form-control" name="etat" id="etat"[(ngModel)]="bibliotheque.etat">
+                  <option [ngValue]="undefined">Choisi Etat</option>
+                  <option *ngFor="let e of etat" [value]="e.value">
+                    {{e.name}}
+                  </option>
+                </select>
+                <small id="etatHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+         
+              <br>
+
+            </div>
+
+          </div><br>
+
+
+          <button type="submit"  class="btn btn-lightning rounded-0 mb-2 mr-2">Ajouter</button>
+          <button type="button " class="btn btn-outline-lightning rounded-0 mb-2">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

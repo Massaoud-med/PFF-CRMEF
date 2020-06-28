@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 p-3">
+        <h5 style="font-family: Georgia, serif; font-size: 27px;">Créer un cours</h5>
+      </div>
+      <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+          <div class="row">
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+              <div class="form-group">
+                <label for="Cours">Cours</label>
+                <input type="text" class="form-control rounded-0" id="Cours" name="Cours" [(ngModel)]="cour.nomCours"
+                  aria-describedby="Cours" placeholder="Cours" #nomCours="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && nomCours.invalid }" required>
+
+                <div *ngIf="f.submitted && nomCours.invalid" class="invalid-feedback">
+                  <div *ngIf="nomCours.errors.required"> Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="formateurCours">Formateur</label>
+                <select class="form-control" name="formateurCours" id="formateurCours" [(ngModel)]="cour.formateurCours"
+                  #formateurCours="ngModel" [ngClass]="{ 'is-invalid': f.submitted && formateurCours.invalid }"
+                  required>
+
+                  <option [ngValue]="undefined">Choisi Formateur</option>
+                  <option *ngFor="let f of listeFormateurs |async">
+                    {{f.nom}}
+                  </option>
+                </select>
+
+                <div *ngIf="f.submitted && formateurCours.invalid" class="invalid-feedback">
+                  <div *ngIf="formateurCours.errors.required"> Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="salleCours">Salle</label>
+                <input type="number" class="form-control rounded-0" id="salleCours" name="salleCours"
+                  [(ngModel)]="cour.salleCours" aria-describedby="depHelp" placeholder="Enter Salle"
+                  #salleCours="ngModel" [ngClass]="{ 'is-invalid': f.submitted && salleCours.invalid }" required>
+
+
+                <div *ngIf="f.submitted && salleCours.invalid" class="invalid-feedback">
+                  <div *ngIf="salleCours.errors.required"> Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+
+              <div class="form-group">
+                <label for="filiereCours">Filière</label>
+                <select class="form-control" name="filiereCours" id="filiereCours" [(ngModel)]="cour.filiereCours"
+                  #filiereCours="ngModel" [ngClass]="{ 'is-invalid': f.submitted && filiereCours.invalid }" required>
+                  <option value="" disabled>Choisi Filière</option>
+                  <option value="Physique">Physique</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="English">English</option>
+                </select>
+
+                <div *ngIf="f.submitted && filiereCours.invalid" class="invalid-feedback">
+                  <div *ngIf="filiereCours.errors.required"> Le champ est incorrect </div>
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="dateCours">Temps</label>
+                <input type="date" class="form-control rounded-0" id="dateCours" name="dateCours"
+                  [(ngModel)]="cour.dateCours" aria-describedby="dateCours" #dateCours="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && dateCours.invalid }" required>
+
+                <div *ngIf="f.submitted && dateCours.invalid" class="invalid-feedback">
+                  <div *ngIf="dateCours.errors.required"> Le champ est incorrect </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+          </div>
+
+          <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Ajouter</button>
+          <button type="reset " class="btn btn-outline-lightning rounded-0 mb-2">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

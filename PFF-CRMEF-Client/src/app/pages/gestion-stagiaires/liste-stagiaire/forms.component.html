@@ -1,0 +1,170 @@
+<div>
+
+  <h5 class="mb-4 text-muted">Dashboard / Gestion des Stagiaires </h5>
+
+  <!--List Stagiaires-->
+
+  <div class="row mb-4">
+
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0" >
+        <div class="card-title mb-1 p-3" style="background-color: #ebb710;">
+          <h5  style="font-size: 27px;"><i class='fas fa-users' style='font-size:27px'></i> &nbsp;Liste des stagiaires<label style="float: right; font-size: 27px;"> Année Scolaire : 2019/2020</label></h5>
+        </div>
+        <div class="card-body">
+
+
+          <div class="row">
+            <div class="col-lg-2">
+              <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="_searchTerm" placeholder="Recherche par nom">
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <div class="form-group">
+                <select class="form-control" id="filiere" name="filiere" [(ngModel)]="filtere">
+                  <option value="all">Filtrer par Filière</option>
+                  <option value="Math">Math</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Physique">Physique</option>
+                  <option value="English">English</option>
+                  <!--  <option *ngFor="let f of filieres" [value]="f.value">{{f.name}}</option>-->
+                </select>
+              </div>
+
+            </div>
+
+           <div class="col-lg-2">
+              <div class="form-group">
+                <select class="form-control" id="filiere" name="filiere" [(ngModel)]="Corps_enseignant">
+                  <option value="all">Filtrer par Corps enseignant</option>
+                  <option value="Primaire">	Primaire</option>
+                  <option value="Secondaire">Secondaire</option>
+                  <!--  <option *ngFor="let f of filieres" [value]="f.value">{{f.name}}</option>-->
+                </select>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-sm- col-sm-12" style="float: right;">
+              <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 " (click)="openPDF()"> <i class="fa fa-print"
+                  style="font-size: 22px;"></i> &nbsp; <strong>Imprimer(.pdf)</strong> </a>
+
+                  <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 " (click)="exportexcel()"> <i class="fa fa-print"
+                    style="font-size: 22px;"></i> &nbsp; <strong>Imprimer(.xls)</strong> </a>
+
+                    
+                  <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 " (click)="exportexcel()"> <i class="fa fa-print"
+                    style="font-size: 22px;"></i> &nbsp; <strong>Imprimer(.csv)</strong> </a>
+
+              <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 " (click)="affichAdd()"> <i class='fas fa-user-plus' style='font-size:20px'></i>&nbsp;<strong>Ajouter Stagiaire</strong> </a>
+            </div>
+          </div>
+
+          <div class="table-responsive-md" id="htmlData" #htmlData>
+            <table class="table ui-table-hoverable-rows" id="excel-table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Code Apoge</th>
+                  <th scope="col">Nom Complet</th>
+                  <th scope="col">CIN</th>
+                  <th scope="col">CNE</th>
+                  <th scope="col">Specialite</th>
+                  <th scope="col">Corps enseignant</th>
+                  <th scope="col">Tel-GSM</th>
+                  <th scope="col">Etat</th>
+                  <th scope="col" style="text-align: center;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let stagiaire of listestagiaires | async | stagiairefilter :_searchTerm |stagiaireFilterFilier : filtere|filterCorpsenseignant : Corps_enseignant |slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                  <th scope="row">{{stagiaire.idStag}}</th>
+                  <td style="padding-top: 22px;">{{stagiaire.codeApoge}}</td>
+                  <td style="padding-top: 22px;"><i  style="font-size: 20px;" [ngClass]="stagiaire.sexe==='Masculin' ? 'fa fa-male' : 'fa fa-female'"></i> &nbsp; {{stagiaire.nomPrenom}}</td>
+                  <td style="padding-top: 22px;">{{stagiaire.cin}}</td>
+                  <td style="padding-top: 22px;">{{stagiaire.cne}}</td>
+                  <td style="padding-top: 22px;">{{stagiaire.specialite}}</td>
+                  <td style="padding-top: 22px;">{{stagiaire.corpsEducatif}}</td>
+                  <td style="padding-top: 22px;">{{stagiaire.tele}}</td>
+                  <td>
+                    <span class="badge badge-primary rounded-0 p-1">{{statue}}</span>
+                  </td>
+                  <td style="text-align: center;">
+
+                                   
+                    <button class="btn btn-sm btn-outline-lightning rounded-0 mr-2 "
+                    (click)="toggle()" style="width: 39px; height: 35px;">
+                    <i class='fas fa-user-cog' style='font-size:18px'></i>
+                  </button> 
+                    <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 "
+                      (click)=" detailsStagiaire(stagiaire.idStag)" style="width: 39px; height: 35px;">
+                      <i class='fas fa-eye' style='font-size:18px'></i>
+                    </a>
+                    
+                   
+                    <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 "
+                      (click)=" editStagiaire(stagiaire.idStag)" style="width: 39px; height: 35px;">
+                      <i class='fas fa-user-edit' style="font-size: 18px;"></i>
+                    </a>
+
+                    <a class="btn btn-sm btn-outline-lightning rounded-0" style="width: 39px; height: 35px;"
+                      mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
+                      placement="left" (confirm)="deleteStagiaire(stagiaire.idStag)" (cancel)="cancelClicked = true">
+                      <i class='fas fa-user-times' style='font-size:16px'></i>
+                    </a>
+     
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6 col-md-12  col-sm-12">
+
+              <div class="row">
+
+                <div class="col-lg-1">
+
+                  <label for="élements" style="margin-left: 10px;padding-top: 10px;">Afficher</label>
+
+                </div>
+                <div class="col-lg-2">
+
+                  <div class="form-group">
+                    <select class="form-control" name="show" id="show" [(ngModel)]="pageSize"
+                      style="width: 80px;margin-left: 20px;">
+                      <option value="6">6</option>
+                      <option value="12">12</option>
+                      <option value="24">24</option>
+
+                    </select>
+                  </div>
+
+                </div>
+                <div class="col-lg-1">
+                  <label for="élements" style="padding-top: 10px;">élements</label>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+
+              <ngb-pagination style="float: right; margin-right: 36px;" [collectionSize]=nbr [(page)]="page"
+                [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+
+      <!--Ajouter Stagiaires-->
+
+
+
+      <!--<app-ajouter-stagiaire *ngIf="showAdd" [stg]="stgs"></app-ajouter-stagiaire>-->
+      <!--<app-details-stagiaire *ngIf="showDetails" [stg]="stgs"></app-details-stagiaire>-->
+      <!--<app-modifier-stagiaire *ngIf="showEdite"></app-modifier-stagiaire>-->

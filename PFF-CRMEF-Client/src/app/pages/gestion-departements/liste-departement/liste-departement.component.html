@@ -1,0 +1,133 @@
+<div>
+
+  <h5 class="mb-4 text-muted">Dashboard/departements </h5>
+
+  <!--List Stagiaires-->
+
+  <div class="row mb-4">
+
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <div style="border-left: honeydew;">
+            <h5 style="font-family: Georgia, serif; font-size: 27px; border-left:12px;" >Liste des Departements </h5>
+
+          </div>
+        </div>
+        <div class="card-body">
+
+
+          <div class="row">
+            <div class="col-lg-3">
+
+              <div class="form-group">
+
+                <input type="text" class="form-control" [(ngModel)]="_searchTerm"
+                  placeholder="Chercher par departement">
+              </div>
+
+              
+            </div>
+
+            <div class="col-lg-3">
+
+              <div class="form-group">
+
+                <input type="text" class="form-control" [(ngModel)]="_searchTerm"
+                  placeholder="Chercher par responsable">
+              </div>
+
+              
+            </div>
+
+            <div class="col-lg-6" style="float: right;">
+              <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 " (click)="openPDF()"> <i class="fa fa-print"
+                  style="font-size: 22px;"></i> &nbsp;<strong>Imprimer(.pdf)</strong></a>
+
+              <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 "  routerLink="/ajouter-departement"> <i class="fa fa-plus"
+                  style="font-size: 22px;"></i> &nbsp; <strong>Ajouter departement</strong> </a>
+            </div>
+          </div>
+
+          <div class="table-responsive-md" id="htmlData" #htmlData>
+            <table class="table table-hover">
+              <thead>
+                <tr style="font-family: Georgia, serif;">
+                  <th scope="col">#</th>
+                  <th scope="col">Departement</th>
+                  <th scope="col">Responsable</th>
+                  <th scope="col">Telephone</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Capaciter</th>
+                  <th scope="col">Action</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="font-family: Georgia, serif; "
+                  *ngFor="let f of departements | async | departementfilter : _searchTerm| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                  <th scope="row">{{f.idDep}}</th>
+                  <td style="padding-top: 22px;">{{f.nomDep}}</td>
+                  <td style="padding-top: 22px;">{{f.responsableDep}}</td>
+                  <td style="padding-top: 22px;">{{f.teleDep}}</td>
+                  <td style="padding-top: 22px;">{{f.emailDep}}</td>
+                  <td style="padding-top: 22px;">{{f.capaciteDep}}</td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-lightning rounded-0 mr-2 " (click)=" editDepartement(f.idDep)"
+                      style="width: 39px; height: 35px;">
+                      <i class="fas fa-edit"></i>
+                    </button>
+
+                    <a class="btn btn-sm btn-outline-lightning rounded-0" class="btn btn-outline-secondary"
+                      mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
+                      placement="left" (confirm)="deleteFormateur(f.idDep)" (cancel)="cancelClicked = true">
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+
+            <div class="row">
+              <div class="col-lg-6">
+
+                <div class="row">
+
+                  <div class="col-lg-1">
+
+                    <label for="élements" style="margin-left: 10px;padding-top: 10px;">Afficher</label>
+
+                  </div>
+                  <div class="col-lg-2">
+
+                    <div class="form-group">
+                      <select class="form-control" name="show" id="show" [(ngModel)]="pageSize"
+                        style="width: 80px;margin-left: 20px;">
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                        <option value="24">24</option>
+
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-1">
+                    <label for="élements" style="padding-top: 10px;">élements</label>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="col-lg-6">
+
+                <ngb-pagination style="float: right; margin-right: 36px;" [collectionSize]=nbr [(page)]="page"
+                  [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>

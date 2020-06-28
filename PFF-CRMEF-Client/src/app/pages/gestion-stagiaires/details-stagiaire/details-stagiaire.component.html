@@ -1,0 +1,371 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="row" style="padding-top: 0%; margin-top: 0%;">
+        <div class="col-md-12 col-lg-4 mb-4 align-items-stretch">
+          <div class="card">
+            <div class="card-header" style="font-size: 18px;">
+              Carte stagiaire 
+            </div>
+            <div class="card-body">
+              <table class="table table-striped table-inverse">
+                <tbody>
+                  <div class="picture-wrapper mb-4">
+                    <div class="user-picture m-auto">
+                      <img src="./assets/img/user.jpg" class="img-fluid" alt="" width="140px">
+                    </div>
+                  </div>
+                  <tr>
+                    <td>
+                      <p class="text-muted">Code Apoge :</p>
+                    </td>
+                    <td>
+                      <p class="text-muted">{{stagiaire.codeApoge}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-muted">Nom Complet : </p>
+                    </td>
+                    <td>
+                      <p class="text-muted">{{stagiaire.nomPrenom}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-muted">Specialite :</p>
+                    </td>
+                    <td>
+                      <p class="text-muted">{{stagiaire.specialite}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-muted">Corps enseignant : </p>
+                    </td>
+                    <td>
+                      <p class="text-muted">{{stagiaire.corpsEducatif}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-muted">Specialite : </p>
+                    </td>
+                    <td>
+                      <p class="text-muted">{{stagiaire.specialite}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-muted">Statut : </p>
+                    </td>
+                    <td>
+                      <p class="text-muted">En cours</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div><br>
+
+          <button type="button" style="width: 100px;" (click)="retour()"
+            class="btn btn-lightning rounded-0 mb-2 mr-2">Retour</button>
+        </div>
+        <div class="col-md-12 col-lg-8 mb-4 align-items-stretch">
+
+          <section class="al-tabs">
+            <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tab-1-content" role="tab"
+                  aria-controls="tab-1-content" aria-selected="true"><strong>Informations Personnelles</strong></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="tab-2" data-toggle="tab" href="#tab-2-content" role="tab"
+                  aria-controls="tab-2-content" aria-selected="false"><strong>Informations des Parent</strong></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="tab-3" data-toggle="tab" href="#tab-3-content" role="tab"
+                  aria-controls="tab-3-content" aria-selected="false"><strong>Informations du Bac</strong></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="tab-4" data-toggle="tab" href="#tab-4-content" role="tab"
+                  aria-controls="tab-4-content" aria-selected="false"><strong>Informations du dernier
+                    diplôme</strong></a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="tab-1-content" role="tabpanel" aria-labelledby="tab-1">
+
+                <table class="table table-striped table-inverse">
+                  <tbody><br>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Nom Complet : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.nomPrenom}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Stuation familiale : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.stuation}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Sexe : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.sexe}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">CIN : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.cin}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Adresse Complet : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.adresse}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Date de naissanace : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.dateNais}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">handicap : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.handicap}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Lieu de naissance : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.lieuNais}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">E-mail : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.email}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Telephone GSM : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.tele}}</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane fade" id="tab-2-content" role="tabpanel" aria-labelledby="tab-2">
+
+                <table class="table table-striped table-inverse ">
+                  <tbody><br>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Nom complet du Pére : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.nomPere}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Nom complet de la mère : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.nomMere}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Profession du Pére : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.profesionPere}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Profesion de la Mère : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.profesionMere}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Adresse des Parents : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.adresse}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Ville : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.codePostale}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Tel GSM des Parents : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.teleParent}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Tel Fix des Parents : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.email}}</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane fade" id="tab-3-content" role="tabpanel" aria-labelledby="tab-3">
+                <table class="table table-striped table-inverse ">
+                  <tbody><br>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Série du bac : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.serieBac}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Moyenne generale : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.noteObtenuBac}}</p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p class="text-muted">Mention du bac : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.mentionBac}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Année d'obetention du bac : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.anneeObtenu}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Province d'obtention de bac : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.provinceObtenu}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Academie regionale de l'education et formation : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.academie}}</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane fade" id="tab-4-content" role="tabpanel" aria-labelledby="tab-4">
+                <table class="table table-striped table-inverse ">
+                  <tbody><br>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Dernier diplôme : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.dernierDiplome}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Spécialité ou option du dernier diplôme : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.specialiteDiplome}}</p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p class="text-muted">Année d'obtention du dernier diplôme : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.anneeDiplome}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Mention obtenue du dernier diplôme : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.mentionDiplome}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Etablissement d'origine : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.faculterObtenuDiplome}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-muted">Moyenne generale : </p>
+                      </td>
+                      <td>
+                        <p class="text-muted">{{stagiaire.noteObtenuDiplome}}</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

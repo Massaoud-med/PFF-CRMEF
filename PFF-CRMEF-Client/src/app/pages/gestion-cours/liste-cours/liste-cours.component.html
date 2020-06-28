@@ -1,0 +1,124 @@
+
+<div>
+
+  <h5 class="mb-4 text-muted">Dashboard/ Cours </h5>
+  
+  <!--List Stagiaires-->
+  
+  <div class="row mb-4">
+  
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5 style="font-family: Georgia, serif; font-size: 27px;">Liste des cours</h5>
+        </div>
+        <div class="card-body">
+  
+          
+          <div class="row">
+            <div class="col-lg-5">
+  
+              <div class="form-group">
+  
+                <input type="text" class="form-control" [(ngModel)]="_searchTerm" placeholder="Chercher par livre">
+              </div>
+            </div>
+            <div class="col-lg-3">
+  
+            </div>
+  
+            <div class="col-lg-4" style="float: right;padding-left: 78px;">
+              <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 " (click)="openPDF()"> <i class="fa fa-print"
+                  style="font-size: 22px;"></i>&nbsp;<strong>Imprimer(.pdf)</strong> </a>
+  
+              <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 " (click)="affichAdd()"> <i class="fa fa-plus"
+                  style="font-size: 22px;"></i>&nbsp;<strong> Ajouter cours</strong> </a>
+            </div>
+          </div>
+  
+          <div class="table-responsive-md" id="htmlData" #htmlData>
+            <table class="table table-hover">
+              <thead>
+                <tr style="font-family: Georgia, serif;">
+                  <th scope="col">#</th>
+                  <th scope="col">Cours</th>
+                  <th scope="col">Formateur</th>
+                  <th scope="col">Salle</th>
+                  <th scope="col">Filière</th>
+                  <th scope="col">Temps</th>
+   
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="font-family: Georgia, serif;"
+                  *ngFor="let c of cours | async | cours: _searchTerm|slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                  <th scope="row">{{c.idCours}}</th>
+                  <td style="padding-top: 22px;">{{c.nomCours}}</td>
+                  <td style="padding-top: 22px;">{{c.formateurCours}}</td>
+                  <td style="padding-top: 22px;">{{c.salleCours}}</td>
+                  <td style="padding-top: 22px;">{{c.filiereCours}}</td>
+                  <td style="padding-top: 22px;">{{c.dateCours}}</td>
+          
+                  <td>
+
+
+                  <button class="btn btn-sm btn-outline-lightning rounded-0 mr-2 "
+                    (click)=" editeCours(c.idCours)" style="width: 39px; height: 35px;">
+                    <i class="fas fa-edit"></i>
+                  </button>
+
+                  <a class="btn btn-sm btn-outline-lightning rounded-0" class="btn btn-outline-secondary"
+                    mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
+                    placement="left" (confirm)="deleteCours(c.idCours)" (cancel)="cancelClicked = true">
+                    <i class="far fa-trash-alt"></i>
+                  </a>
+                  </td>
+                </tr>
+  
+              </tbody>
+            </table>
+
+            
+            <div class="row">
+              <div class="col-lg-6">
+
+                <div class="row">
+
+                  <div class="col-lg-1">
+
+                    <label for="élements" style="margin-left: 10px;padding-top: 10px;">Afficher</label>
+
+                  </div>
+                  <div class="col-lg-2">
+
+                    <div class="form-group">
+                      <select class="form-control" name="show" id="show" [(ngModel)]="pageSize"
+                        style="width: 80px;margin-left: 20px;">
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                        <option value="24">24</option>
+
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-1">
+                    <label for="élements" style="padding-top: 10px;">élements</label>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="col-lg-6">
+
+                <ngb-pagination style="float: right; margin-right: 36px;" [collectionSize]=nbr [(page)]="page"
+                  [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+              </div>
+            </div>
+  
+          </div>
+  
+    </div>
+  </div><br>
+
+  

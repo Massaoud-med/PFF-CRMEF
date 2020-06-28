@@ -1,0 +1,141 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 col-lg-11 mb-11 align-items-stretch">
+      <div class="card border-0 rounded-0 h-100">
+        <div class="card-title mb-1 p-3">
+          <h5 style="font-size: 27px;">Evolution & Résultats</h5>
+        </div>
+        <div class="card-body">
+          <section class="al-tabs">
+            <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tab-1-content" role="tab"
+                  aria-controls="tab-1-content" aria-selected="true"> <strong>Résultats</strong> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="tab-2" data-toggle="tab" href="#tab-2-content" role="tab"
+                  aria-controls="tab-2-content" aria-selected="false"> <strong>Evoluations</strong> </a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="tab-1-content" role="tabpanel" aria-labelledby="tab-1">
+                <div class="card h-100 border-0 rounded-0">
+                  <div class="card-body">
+                    <h3>CNE : 12-29008789</h3>
+                    <hr style="background-color: gold;">
+                    <div class="table-responsive-md">
+                      <div class="table-responsive">
+                        <table class="table ">
+                          <thead>
+                            <tr>
+                              <th style="width:40%;">Module</th>
+                              <th class="number">Note</th>
+                              <th style="width:20%;">State</th>
+                            </tr>
+                          </thead>
+                          <tbody class="no-border-x">
+                            <tr>
+                              <td>Module 1</td>
+                              <td class="number">9.2</td>
+                              <td class="text-warning">Rattrapage</td>
+                            </tr>
+                            <tr>
+                              <td>Module 2 </td>
+                              <td class="number">0</td>
+                              <td class="text-danger">Absent</td>
+                            </tr>
+                            <tr>
+                              <td>Module 3 </td>
+                              <td class="number">15.3</td>
+                              <td class="text-success">valider</td>
+                            </tr>
+                            <tr>
+                              <td>Module 4</td>
+                              <td class="number">10 </td>
+                              <td class="text-success">valider</td>
+                            </tr>
+                            <tr>
+                              <td>Module 4</td>
+                              <td class="number">12.3</td>
+                              <td class="text-success">valider</td>
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td> <strong>Résultat</strong></td>
+                              <td class="number"><strong>12.5</strong></td>
+                              <td class="text-success"><strong>validé</strong></td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="btn btn-warning" role="button" (click)="openModal(template)"style="position: relative; float: right;">Reclamtion</a>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab-2-content" role="tabpanel" aria-labelledby="tab-2">
+                <div class="card h-100 border-0 rounded-0">
+                  <div class="card-body">
+                    <div class="table-responsive-md">
+                      <div class="table-responsive">
+                        <table class="table ">
+                          <thead>
+                            <tr>
+                              <th>Module</th>
+                              <th class="number">Salle</th>
+                              <th>Place</th>
+                              <th class="number">Jour</th>
+                              <th class="number">Date</th>
+                              <th>Horaire</th>
+                            </tr>
+                          </thead>
+                          <tbody class="no-border-x">
+                            <tr>
+                              <td>Arabic</td>
+                              <td>12</td>
+                              <td>24</td>
+                              <td>Mardi</td>
+                              <td>02/02/2012</td>
+                              <td> 15H-16H30</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="btn btn-warning" role="button" (click)="openModal(template)"style="position: relative; float: right;">Reclamtion</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form">
+  <form action="#">
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Reclamation</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="description">
+          <div class="form-group">
+            <label for="">Description</label>
+            <textarea class="form-control" name="" id="" rows="8"></textarea>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button type="button" class="btn btn-outline rounded-0 mb-2 mr-2" (click)="ajoutReclamation()"><i
+            class='fas fa-plus' style='font-size:24px'></i>&nbsp;&nbsp;&nbsp;Ajouter</button>
+        <button type="reset" class="btn btn-outline-lightning rounded-0 mb-2">&nbsp;&nbsp;&nbsp;Annuler</button>
+      </div>
+    </ng-template>
+  </form>
+</div>

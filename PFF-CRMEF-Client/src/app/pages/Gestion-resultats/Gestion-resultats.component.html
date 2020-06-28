@@ -1,0 +1,126 @@
+<h5 class="mb-4 text-muted">Dashboard/ Résultats & Evaluations </h5>
+<div class="col-lg-12">
+  <div class="card border-0 rounded-0">
+    <div class="card-title mb-1 p-3">
+      <h5 style="font-family: Georgia, serif; font-size: 27px;">Gestion des Résultats & des Evaluations</h5>
+    </div>
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12-col-sm-12">
+          <section class="al-tabs">
+            <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tab-1-content" role="tab"
+                  aria-controls="tab-1-content" aria-selected="true"><strong>Résultats</strong></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="tab-2" data-toggle="tab" href="#tab-2-content" role="tab"
+                  aria-controls="tab-2-content" aria-selected="false"><strong>Evaluations</strong></a>
+              </li>
+
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+
+              <div class="tab-pane fade show active" id="tab-1-content" role="tabpanel" aria-labelledby="tab-1">
+
+
+                  <div *ngIf="currentFile" class="progress">
+                    <div
+                      class="progress-bar progress-bar-info progress-bar-striped"
+                      role="progressbar"
+                      attr.aria-valuenow="{{ progress }}"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      [ngStyle]="{ width: progress + '%' }">
+                      {{ progress }}%
+                    </div>
+                  </div>
+                  
+                  <label class="btn btn-default">
+                    <input type="file" (change)="selectFile($event)" />
+                  </label>
+                  
+                  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+                    Upload
+                  </button>
+                  
+                  <div class="alert alert-light" role="alert">{{ message }}</div>
+                  
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>N°</th>
+                        <th>N° Inscription</th>
+                        <th>Nom Complet</th>
+                        <th>XXXX</th>
+                        <th>Note 1</th>
+                        <th>Note 2</th>
+                        <th>Moyenne</th>
+                        <th>Remarque</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let note of Note | async ">
+            
+                        <td>{{note.idNote}}</td>
+                        <td>{{note.numInscription}}</td>
+                        <td>{{note.nomComplet}}</td>
+                        <td>{{note.xxxx}}</td>
+                        <td>{{note.note1}}</td>
+                        <td>{{note.note2}}</td>
+                        <td>{{note.noteMoyenne}}</td>
+                        <td>{{note.remarque}}</td>
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+              </div>
+              <div class="tab-pane fade" id="tab-2-content" role="tabpanel" aria-labelledby="tab-2">
+
+
+                <div class="card">
+                  <div class="card-header" style="font-size: 18px;">
+                    Evaluations
+                  </div>
+                  <div class="card-body">
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+        </div>
+      </div>
+
+
+      <!--  <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>modul1</th>
+            <th>modul2</th>
+            <th>nom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let note of Note | async ">
+
+            <td>{{note.idNote}}</td>
+            <td>{{note.module_1}}</td>
+            <td>{{note.module_2}}</td>
+            <td>{{note.nom_stagiaire}}</td>
+          </tr>
+        </tbody>
+      </table>-->
+    </div>
+
+  </div>
+
+</div>

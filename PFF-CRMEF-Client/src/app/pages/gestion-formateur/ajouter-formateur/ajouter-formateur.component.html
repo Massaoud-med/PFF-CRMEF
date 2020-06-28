@@ -1,0 +1,352 @@
+<form name="form" (ngSubmit)="f.form.valid && onSubmitF()" #f="ngForm" novalidate>
+  <div class="card-body">
+
+    <div class="card">
+      <div class="card-header" style="background-color: #ebb710;font-family: Georgia, serif; font-size: 27px;">
+        Informations Personnel
+      </div>
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+            <div class="card border-0 rounded-0 h-100">
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+                    <div class="form-group">
+                      <label for="exampleInputnum">N° Professionnal</label>
+                      <input type="text" class="form-control rounded-0" id="exampleInputnum" name="exampleInputnum"
+                        #numF="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numF.invalid }" required
+                        [(ngModel)]="formateur.numF">
+
+                      <div *ngIf="f.submitted && numF.invalid" class="invalid-feedback">
+                        <div *ngIf="numF.errors.required">Le champ est incorrect </div>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputNom">Nom Complet</label>
+                      <input type="text" class="form-control rounded-0" id="exampleInputNom" name="exampleInputNom"
+                        #nom="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nom.invalid }" required
+                        [(ngModel)]="formateur.nom">
+
+                      <div *ngIf="f.submitted && nom.invalid" class="invalid-feedback">
+                        <div *ngIf="nom.errors.required">Le champ est incorrect </div>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputLieuNais">Lieu Naissance</label>
+                      <input type="text" class="form-control rounded-0" id="exampleInputLieuNais"
+                        name="exampleInputLieuNais" #lieuNais="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && lieuNais.invalid }" required
+                        [(ngModel)]="formateur.lieuNais">
+
+                      <div *ngIf="f.submitted && lieuNais.invalid" class="invalid-feedback">
+                        <div *ngIf="lieuNais.errors.required">Le champ est incorrect </div>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputTelephone">Telephone</label>
+                      <input type="text" class="form-control rounded-0" id="exampleInputTelephone"
+                        name="exampleInputTelephone" #tele="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && tele.invalid }" required [(ngModel)]="formateur.tele">
+
+                      <div *ngIf="f.submitted && tele.invalid" class="invalid-feedback">
+                        <div *ngIf="tele.errors.required">Le champ est incorrect </div>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Sexe" class="text-muted">Sexe</label>
+                      <select class="form-control" name="sexe" id="sexe" [(ngModel)]="formateur.sexe" #sexe="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && sexe.invalid }" required>
+                        <option value="" disabled></option>
+                        <option value="Masculin">Masculin</option>
+                        <option value="Feminin">Féminin</option>
+                      </select>
+                      <div *ngIf="f.submitted && sexe.invalid" class="invalid-feedback">
+                        <div *ngIf="sexe.errors.required">Le champ est incorrect </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+                    <div class="form-group">
+                      <label for="exampleInputCin">CIN</label>
+                      <input type="text" class="form-control rounded-0" id="exampleInputCin" name="exampleInputCin"
+                        #cin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cin.invalid }" required
+                        [(ngModel)]="formateur.cin">
+
+
+                      <div *ngIf="f.submitted && cin.invalid" class="invalid-feedback">
+                        <div *ngIf="cin.errors.required">Le champ est incorrect </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputAdress">Adresse personnelle</label>
+                      <input type="text" class="form-control rounded-0" id="exampleInputAdress"
+                        name="exampleInputAdress" #adresse="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && adresse.invalid }" required
+                        [(ngModel)]="formateur.adresse">
+
+                      <div *ngIf="f.submitted && adresse.invalid" class="invalid-feedback">
+                        <div *ngIf="adresse.errors.required">Le champ est incorrect </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputDateNais">Date de naissance</label>
+                      <input type="date" class="form-control rounded-0" id="exampleInputDateNais"
+                        name="exampleInputDateNais" #dateNais="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && dateNais.invalid }" required
+                        [(ngModel)]="formateur.dateNais">
+
+                      <div *ngIf="f.submitted && dateNais.invalid" class="invalid-feedback">
+                        <div *ngIf="dateNais.errors.required">Le champ est incorrect </div>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1" class="text-muted">E-mail</label>
+                      <input type="email" class="form-control rounded-0" id="exampleInputEmail1"
+                        name="exampleInputEmail1" #email="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required
+                        [(ngModel)]="formateur.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        aria-describedby="emailHelp">
+
+                      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                        <div *ngIf="email.errors.required">Le champ est incorrect</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="situtionF" class="text-muted">Stuation familiale</label>
+                      <select class="form-control" name="situtionF" id="situtionF" [(ngModel)]="formateur.situtionF"
+                        #situtionF="ngModel" [ngClass]="{ 'is-invalid': f.submitted && situtionF.invalid }" required>
+                        <option value="" disabled></option>
+                        <option value="marié (M)">marié (M)</option>
+                        <option value="célibataire (C)">célibataire (C)</option>
+                      </select>
+                      <div *ngIf="f.submitted && situtionF.invalid" class="invalid-feedback">
+                        <div *ngIf="situtionF.errors.required">Le champ est incorrect </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card">
+      <div class="card-header" style="background-color: #ebb710;font-family: Georgia, serif; font-size: 27px;">
+        Informations sur les diplômes
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+            <div class="card border-0 rounded-0 h-100">
+              <div class="card-body">
+                <div class="row">
+
+                  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+                    <div class="form-group">
+                      <label for="bacObention" class="text-muted">Série du bac</label>
+                      <select class="form-control" name="bacObention" id="bacObention"
+                        [(ngModel)]="formateur.bacObention" #bacObention="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && bacObention.invalid }" required>
+                        <option value="" disabled selected></option>
+                        <option *ngFor="let b of serieBacs" [value]="b.value">
+                          {{b.name}}
+                        </option>
+                      </select>
+
+                      <div *ngIf="f.submitted && bacObention.invalid" class="invalid-feedback">
+                        <div *ngIf="bacObention.errors.required"> Le champ est incorrect</div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputDernierdiplôme" class="text-muted">Dernier diplôme </label>
+                      <input type="text" class="form-control rounded-0" id="exampleInputDernierdiplôme"
+                        name="exampleInputDernierdiplôme" #dernierDiplome="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && dernierDiplome.invalid }" required
+                        [(ngModel)]="formateur.dernierDiplome">
+
+                      <div *ngIf="f.submitted && dernierDiplome.invalid" class="invalid-feedback">
+                        <div *ngIf="dernierDiplome.errors.required"> Le champ est incorrect </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputNoteSpécialité" class="text-muted">Spécialité ou option du dernier diplôme
+                      </label>
+                      <input type="text" class="form-control rounded-0" id="exampleInputNoteSpécialité"
+                        name="exampleInputNoteSpécialité" #specialiteDiplome="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && specialiteDiplome.invalid }" required
+                        [(ngModel)]="formateur.specialiteDiplom" aria-describedby="specialiteDiplomeHelp">
+
+                      <div *ngIf="f.submitted && specialiteDiplome.invalid" class="invalid-feedback">
+                        <div *ngIf="specialiteDiplome.errors.required"> Le champ est incorrect </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Etablissement" class="text-muted">Etablissement d'origine</label>
+                      <select class="form-control" name="Etablissement" id="Etablissement"
+                        [(ngModel)]="formateur.facObtentionDiplome" #facObtentionDiplome="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && facObtentionDiplome.invalid }" required>
+                        <option value="" disabled selected></option>
+                        <option *ngFor="let f of facultes" [value]="f.value">
+                          {{f.name}}
+                        </option>
+                      </select>
+
+                      <div *ngIf="f.submitted && facObtentionDiplome.invalid" class="invalid-feedback">
+                        <div *ngIf="facObtentionDiplome.errors.required">Le champ est incorrect</div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+                    <div class="form-group">
+                      <label for="exampleInputanneeBac" class="text-muted">Année d'obetention du bac</label>
+                      <input type="date" class="form-control rounded-0" id="exampleInputanneeBac"
+                        name="exampleInputanneeBac" #anneeObtentionBac="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && anneeObtentionBac.invalid }" required
+                        [(ngModel)]="formateur.anneeObtentionBac" aria-describedby="anneeObtenuPHelp">
+
+                      <div *ngIf="f.submitted && anneeObtentionBac.invalid" class="invalid-feedback">
+                        <div *ngIf="anneeObtentionBac.errors.required">Le champ est incorrect</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputAnneDiplom" class="text-muted">Année d'obtention du dernier
+                        diplôme</label>
+                      <input type="date" class="form-control rounded-0" id="exampleInputAnneDiplom"
+                        name="exampleInputAnneDiplom" #anneeObtentionDiplome="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && anneeObtentionDiplome.invalid }" required
+                        [(ngModel)]="formateur.anneeObtentionDiplome" aria-describedby="mentionHelp">
+
+                      <div *ngIf="f.submitted && anneeObtentionDiplome.invalid" class="invalid-feedback">
+                        <div *ngIf="anneeObtentionDiplome.errors.required">Le champ est incorrect</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Mention" class="text-muted">Mention obtenue du dernier diplôme</label>
+                      <select class="form-control" name="Mention" id="Mention" [(ngModel)]="formateur.mentionDiplome"
+                        #mentionDiplome="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mentionDiplome.invalid }"
+                        required>
+                        <option value="" disabled selected></option>
+                        <option value="Admis">Admis</option>
+                        <option value="Assez bien">Assez bien</option>
+                        <option value="Bien">Bien</option>
+                        <option value="Trés bien">Trés bien</option>
+                      </select>
+
+                      <div *ngIf="f.submitted && mentionDiplome.invalid" class="invalid-feedback">
+                        <div *ngIf="mentionDiplome.errors.required">Le champ est incorrect</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+    <div class="card">
+      <div class="card-header" style="background-color: #ebb710;font-family: Georgia, serif; font-size: 27px;">
+        Informations professionnelles
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+            <div class="card border-0 rounded-0 h-100">
+              <div class="card-body">
+                <div class="row">
+
+                  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+                    <div class="form-group">
+                      <label for="AnneeExp" class="text-muted">Années d'expérience(ans) </label>
+                      <input type="text" class="form-control rounded-0" id="AnneeExp" name="AnneeExp"
+                        #AnneeExp="ngModel" [ngClass]="{ 'is-invalid': f.submitted && AnneeExp.invalid }" required
+                        [(ngModel)]="formateur.anneeExp" aria-describedby="noteHelp">
+
+                      <div *ngIf="f.submitted && AnneeExp.invalid" class="invalid-feedback">
+                        <div *ngIf="AnneeExp.errors.required"> Le champ est incorrect </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+                    <div class="form-group">
+                      <label for="specialiteExp" class="text-muted">Specialité </label>
+                      <input type="text" class="form-control rounded-0" id="specialiteExp" name="specialiteExp"
+                        #specialiteExp="ngModel" [ngClass]="{ 'is-invalid': f.submitted && specialiteExp.invalid }"
+                        required [(ngModel)]="formateur.specialiteExp" aria-describedby="noteHelp">
+
+                      <div *ngIf="f.submitted && specialiteExp.invalid" class="invalid-feedback">
+                        <div *ngIf="specialiteExp.errors.required"> Le champ est incorrect </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-lg-12">
+
+                    <div class="form-group">
+                      <label for="infoExp">Description de l'expérience professionnelle</label>
+                      <textarea class="form-control" name="infoExp" id="infoExp" rows="6"
+                        [(ngModel)]="formateur.descriptionExp" #descriptionExp="ngModel"></textarea>
+                    </div>
+
+                    <div *ngIf="f.submitted && descriptionExp.invalid" class="invalid-feedback">
+                      <div *ngIf="descriptionExp.errors.required"> Le champ est incorrect </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><br>
+    <div class="btn" style="background-color: white; width: 100%; padding-left: 20px;">
+      <button type="submit" style="width: 200px;" class="btn btn-lightning rounded-0 mb-2 mr-2">Ajouter</button>
+      <button type="reset" style="width: 200px;" class="btn btn-outline-lightning rounded-0 mb-2">Cancel</button>
+  
+    </div>
+  </div>
+</form>

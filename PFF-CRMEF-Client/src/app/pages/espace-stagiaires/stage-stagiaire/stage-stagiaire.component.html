@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 col-lg-9 mb-9 align-items-stretch">
+      <div class="card border-0 rounded-0 h-100">
+        <div class="card-title mb-1 p-3"style="background-color: #ebb710;">
+          <h5 style="font-size: 27px;">Stage</h5>
+        </div>
+        <div class="card-body">
+
+          <table class="table table-striped table-inverse ">
+            <tbody><br>
+              <tr>
+                <td>
+                  <strong class="text-muted">Nom Complet : </strong>
+                </td>
+                <td>
+                  <!--  <p class="text-muted">{{stagiaire.dernierDiplome}}</p>-->
+                  <strong>Massaoud Mohammed</strong>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong class="text-muted">CNI : </strong>
+                </td>
+                <td>
+                  <!--  <p class="text-muted">{{stagiaire.specialiteDiplome}}</p>-->
+                  <strong>CM1365</strong>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong class="text-muted">CNE : </strong>
+                </td>
+                <td>
+                  <!--      <p class="text-muted">{{stagiaire.anneeDiplome}}</p>-->
+                  <strong>1253336547</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong class="text-muted">lycée : </strong>
+                </td>
+                <td>
+                  <!--    <p class="text-muted">{{stagiaire.mentionDiplome}}</p>-->
+                  <strong>elmkhtar sousi</strong>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong class="text-muted">Adresse : </strong>
+                </td>
+                <td>
+                  <!--    <p class="text-muted">{{stagiaire.mentionDiplome}}</p>-->
+                  <strong>ait melloul chohada </strong>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong class="text-muted">Date de début de stage : </strong>
+                </td>
+                <td>
+                  <!--    <p class="text-muted">{{stagiaire.faculterObtenuDiplome}}</p>-->
+                  <strong>12/12/2020</strong>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong class="text-muted">Date de fin de stage : </strong>
+
+                </td>
+                <td>
+                  <!--     <p class="text-muted">{{stagiaire.faculterObtenuDiplome}}</p>-->
+                  <strong>03/04/2021</strong>
+                </td>
+              </tr>
+
+            </tbody>
+          </table><br>
+
+          <!-- <div style="width: 100%"><iframe width="100%" height="600"
+              src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=30.33850962875121,-9.511413574218752&amp;q=xddd+(my%20adresse)&amp;ie=UTF8&amp;t=&amp;z=12&amp;iwloc=B&amp;output=embed"
+              frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a
+                href="https://www.maps.ie/draw-radius-circle-map/">Google Maps radius calculator</a></iframe>
+          </div>-->
+          <!-- app.component.html -->
+          <div class="container">
+            <div class="form-group">
+             <h2>Entrer l'adresse</h2>
+              <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+                placeholder="Entrer l'adresse" autocorrect="off" autocapitalize="off" spellcheck="off"
+                type="text" #search>
+            </div>
+
+            <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+              <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                (dragEnd)="markerDragEnd($event)"></agm-marker>
+            </agm-map>
+
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
